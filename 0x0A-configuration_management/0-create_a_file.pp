@@ -1,7 +1,7 @@
-# Creates a file
-file { '/tmp/school':
-  mode    => '0744',
-  owner   => 'www-data',
-  group   => 'www-data',
-  content => 'I love Puppet',
+# using Puppet create a file in tmp
+file {'/tmp/school':
+group   => 'www-data',
+owner   => 'www-data',
+mode    => '0744',
+content => 'I love Puppet',
 }
