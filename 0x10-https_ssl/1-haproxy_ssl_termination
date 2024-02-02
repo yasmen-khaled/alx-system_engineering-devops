@@ -40,7 +40,7 @@ frontend haproxy_balancer
     default_backend webservers
 
 
-backend yasgames-tech-backend
+backend yasgames-backend
     balance roundrobin
     server 453-web-01 100.24.238.235:80 check
     server 453-web-02 18.210.16.58:80 check
