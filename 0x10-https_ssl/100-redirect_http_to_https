@@ -38,3 +38,9 @@ frontend haproxy_balancer
     redirect scheme https code 301 if !{ ssl_fc }
     mode http
     default_backend webservers
+
+
+backend yasgames-tech-backend
+    balance roundrobin
+    server 453-web-01 100.24.238.235:80 check
+    server 453-web-02 18.210.16.58:80 check
