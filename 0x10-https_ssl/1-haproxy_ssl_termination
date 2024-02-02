@@ -8,7 +8,7 @@ global
         group haproxy
         daemon
 
-        # Default SSL material locations
+               # Default SSL material locations
         ca-base /etc/ssl/certs
         crt-base /etc/ssl/private
 
@@ -34,14 +34,12 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 frontend haproxy_balancer
     bind *:80
-    bind *:443 ssl crt /etc/letsencrypt/live/www.yasgames.tech/privkey.pem
-
-    redirect scheme https code 301 if !{ ssl_fc }
+    bind *:443 ssl crt /etc/letsencrypt/live/www.yasgames.tech/fullchain.pem
     mode http
+    redirect scheme https  if !{ ssl_fc }
     default_backend webservers
 
-
-backend yasgames-backend
+backend yasgames-tech-backend
     balance roundrobin
     server 453-web-01 100.24.238.235:80 check
     server 453-web-02 18.210.16.58:80 check
