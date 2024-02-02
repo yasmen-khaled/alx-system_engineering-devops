@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Stop nginx service
-sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
-sudo service nginx restart
-pkill --oldest nginx
+#nginx service
+ln -sf/etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx start
+
+kill "$(pgrep 'nginx' | head -l)"
