@@ -34,7 +34,7 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 frontend haproxy_balancer
     bind *:80
-    bind *:443 ssl crt /etc/letsencrypt/live/www.yasgames.tech/privkey.pem
+    bind *:443 ssl crt /etc/letsencrypt/archive/www.yasgames.tech/www.yasgames.tech.pem
 
     redirect scheme https code 301 if !{ ssl_fc }
     mode http
