@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-""" Reddit """
+"""
+Reddit
+"""
 
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """Return total number of subscribers for a subreddit."""
+    """Return """
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers, allow_redirects=False)
@@ -15,4 +17,3 @@ def number_of_subscribers(subreddit):
         return subscribers
     else:
         return 0
-        
